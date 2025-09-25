@@ -218,24 +218,35 @@ function Home() {
       <section className="relative h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
-            alt="Hero background"
-            className="w-full h-full object-cover"
+              width="300"
+              height="200"
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80&auto=format&fit=crop"
+              srcSet="
+                https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=320&q=70&auto=format&fit=crop 320w,
+                https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=640&q=70&auto=format&fit=crop 640w,
+                https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1024&q=75&auto=format&fit=crop 1024w,
+                https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80&auto=format&fit=crop 1920w
+              "
+              sizes="100vw"
+              alt="Hero background"
+              className="w-full h-full object-cover"
+              fetchpriority="high"
+              decoding="async"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          <div className="absolute inset-0 bg-black bg-opacity-50"/>
         </div>
-        
+
         <div className="relative container text-center text-white space-y-8">
-          <motion.h1 
-            className="text-5xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <motion.h1
+              className="text-5xl font-bold"
+              initial={{opacity: 0, y: 20}}
+              animate={{opacity: 1, y: 0}}
+              transition={{duration: 0.6}}
           >
             Invest and Trade in Real Estate with Cryptocurrency
           </motion.h1>
-          <motion.p 
-            className="text-xl max-w-2xl mx-auto"
+          <motion.p
+              className="text-xl max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -324,6 +335,8 @@ function Home() {
                 <img
                   src={property.image}
                   alt={property.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-primary-600 font-semibold">
@@ -454,6 +467,8 @@ function Home() {
                   <img
                     src={post.image}
                     alt={post.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-primary-600">
