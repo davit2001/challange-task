@@ -5,7 +5,7 @@ import { FiArrowRight, FiUser, FiClock } from 'react-icons/fi';
 import { FaWallet, FaStore, FaMoneyBillWave, FaExchangeAlt, FaChartLine, FaLock, FaUserCog, FaCoins } from 'react-icons/fa';
 import { SiEthereum } from 'react-icons/si';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import WalletConnectModal from "../components/WalletConnectModal";
+import ConnectButton from "../components/ConnectButton";
 
 function Home() {
   const [openSections, setOpenSections] = useState({});
@@ -429,7 +429,7 @@ function Home() {
             >
               Browse Properties
             </Link>
-            <WalletConnectModal />
+            <ConnectButton />
           </div>
         </div>
       </section>
