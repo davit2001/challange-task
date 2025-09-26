@@ -2,7 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiHome, FiMaximize2, FiCalendar, FiTrendingUp, FiUsers, FiDollarSign, FiGrid } from 'react-icons/fi';
 import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import { FaFacebook, FaTwitter, FaLinkedin, FaEthereum, FaWallet } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaLinkedin, FaEthereum } from 'react-icons/fa';
+import ConnectButton from "../components/ConnectButton";
 
 function PropertyDetail() {
   const { id } = useParams();
@@ -287,12 +288,7 @@ function PropertyDetail() {
                 <FiGrid className="mr-2" />
                 View 3D version
               </Link>
-
-              <button className="btn w-full mb-4 flex items-center justify-center">
-                <FaWallet className="mr-2" />
-                Connect Wallet to Invest
-              </button>
-              
+              <ConnectButton />
               <div className="flex items-center justify-center space-x-4 pt-4 border-t">
                 <FacebookShareButton url={shareUrl}>
                   <FaFacebook className="text-2xl text-blue-600 hover:opacity-80" />
