@@ -20,7 +20,6 @@ const ConnectButton = () => {
 
     const onDisconnect = async () => {
         try {
-            console.log('onDisconnect')
             await disconnect();
         } catch (err) {
             toast.error("Failed to disconnect wallet");
