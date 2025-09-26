@@ -1,33 +1,33 @@
 import React from "react";
 import { useWeb3 } from "../context/Web3Context";
-import { useWeb3ModalAccount, useWeb3Modal, useDisconnect } from "web3modal-web3js/react";
-import {FaWallet} from "react-icons/fa";
-import {toast} from "react-toastify";
+import { FaWallet } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const ConnectButton = () => {
-    const { address } = useWeb3();
-    const { open } = useWeb3Modal();
-    const { isConnected } = useWeb3ModalAccount();
-    const { disconnect } = useDisconnect();
+    const { address, connectWallet, disconnectWallet } = useWeb3();
 
     const onConnect = async () => {
         try {
-            await open();
+            await connectWallet();
         } catch (err) {
-            toast.error("Failed to Connect wallet");
+            toast.error("Failed to connect wallet");
         }
     };
 
     const onDisconnect = async () => {
         try {
-            await disconnect();
+            disconnectWallet();
         } catch (err) {
             toast.error("Failed to disconnect wallet");
         }
     };
 
-    if (isConnected && address) {
-        return <button onClick={onDisconnect}>Disconnect ({address.slice(0, 6)}...)</button>;
+    if (address) {
+        return (
+            <button onClick={onDisconnect} className="btn">
+                Disconnect ({address.slice(0, 6)}…)
+            </button>
+        );
     }
 
     return (
@@ -35,7 +35,7 @@ const ConnectButton = () => {
             <FaWallet className="mr-2" />
             Connect Wallet
         </button>
-    )
+    );
 };
 
 export default ConnectButton;
